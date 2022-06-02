@@ -47,13 +47,30 @@ if (isset($_POST['submit'])) {
 				<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
 			</div>
 			<div class="input-group">
-				<input type="password" placeholder="Password" name="password" value="<?php echo $_POST['password']; ?>" required>
+				<input type="password" id="password" placeholder="Password" name="password" value="<?php echo $_POST['password']; ?>" required>
 			</div>
+			<div id= "password-toggle" onclick= "showHide();"></div> 
 			<div class="input-group">
 				<button name="submit" class="btn">Login</button>
 			</div>
 			<p class="login-register-text">Don't have an account? <a href="register.php">Register Here</a>.</p>
+			<a href="forget.php">Forget Password ?</a>
 		</form>
 	</div>
 </body>
 </html>
+<!-- PASSWORD SHOW/HIDE  -->
+<script type="text/javascript">
+    const password = document.getElementById('password');
+    const toggle = document.getElementById('password-toggle');
+
+    function showHide(){
+        if(password.type === 'password'){
+            password.setAttribute('type', 'text');
+            toggle.classList.add('hide');
+        }else{
+            password.setAttribute('type', 'password');
+            toggle.classList.remove('hide');
+        }
+    }
+</script>
